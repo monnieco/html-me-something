@@ -1,0 +1,58 @@
+body {
+    backGround-color: #e01818;
+    margin: 50px;
+    padding: 100px;
+
+  }
+  
+  h1 {
+        color:gold;
+        text-align: center;
+
+    
+  }
+
+   h2 {
+     padding-left: 40px;  
+  }
+   p { /* This is my element reference */
+    color: rgb(213, 216, 32);
+    font-style: italic; 
+    font-size: 20px;
+    padding-left: 40px;
+
+
+
+  }
+  
+   .styles { /* this is my class reference */
+     
+     color: rgb(116, 27, 45);
+  }
+
+  .center {
+    margin: auto;
+    text-align: center;
+    list-style: inside;
+
+
+
+}
+ #sunny {
+     color: green;
+ }
+
+
+
+   
+
+
+
+
+    
+
+  
+   #bodyStyles { /* this is my id reference */
+     border-radius: 100px;
+    
+  }
