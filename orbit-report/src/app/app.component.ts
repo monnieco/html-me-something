@@ -1,3 +1,4 @@
+import { SelectorMatcher } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { bindCallback } from 'rxjs';
 import { Satellite } from './satellite';
@@ -15,33 +16,36 @@ export class AppComponent {
   constructor() {
     this.sourceList =[];
     this.displayList = [];
-    let satellitesUrl = "https://handlers.education.launchcode.org/static/satellites.json"
+    let satellitesUrl = "https://handlers.education.launchcode.org/static/satellites.json";
     window.fetch(satellitesUrl).then(function(response) {
       response.json().then(function(data) {
 
         let fetchedSatellites = data.satellites;
-        for(let i = 0; i < fetchedSatellites.lenght; i++){
-          let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].counts);
 
+        for(let i = 0; i < fetchedSatellites.length; i++){
+          let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
           this.sourceList.push(satellite);
-          this.displayList =this.sourceList.slice(0);
+          this.displayList = this.sourceList.slice(0);
 
         }
-
-       }.bind(this)); 
       }.bind(this));
-}
-search(searchTerm: string): void {
-  let matchingSatellites: Satellite[] = [];
-  searchTerm = searchTerm.toLowerCase();
-  for(let i = 0; i < this. sourceList.length; i++) {
-   let name = this.sourceList[i].name.toLowerCase();
-   if (name.indexof(searchTerm) >= 0) {
-    matchingSatellites.push(this.sourceList[i]); 
-   }
+      }.bind(this));
   
-  }
-  this.displayList = matchingSatellites;
+    }
+    search(searchTerm: string): void {
+      let matchingSatellites: Satellite[] = [];
+      searchTerm = searchTerm.toLowerCase();
+      for(let i =0; i < this.sourceList.length; i++) {
+        let name = this.sourceList[i].name.toLowerCase();
+        if (name.indexOf(searchTerm) >= 0) {
+          matchingSatellites.push(this.sourceList[i]);
 
+        
+        }
+      }
+      this.displayList = matchingSatellites;
+    } 
   
-};
+
+      
+  };
