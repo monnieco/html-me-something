@@ -14,7 +14,7 @@ export class Satellite {
         this.operational = operational;
     }
      shouldShowWarning(): boolean{
-         if (this.type.toUpperCase() === 'Space Debris') {
+         if (this.type.toUpperCase() == 'Space Debris') {
              console.log(this.type.toUpperCase())
             return true;
         } else {
