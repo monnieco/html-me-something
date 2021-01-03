@@ -9,12 +9,12 @@
 }
 
 table {
-  color: #111;
+  color: rgb(20, 10, 14);
   border-radius: 5px;
   overflow: hidden;
   margin: 12px 0;
-  min-width: 300px;
-  background: #dad8d8;
+  min-width: 500px;
+  background: #a7abd6;
 }
 
 .header-row {
